@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script>
+    var addContent = function(){
+      // Clear the body first
+      document.body.innerHTML = ""
+
+      // Add our new content to the body
+      var content = document.createElement('span')
+      content.innerHTML = "content";
+      document.body.appendChild(content);
+
+      // Add a few more things...
+      var span = document.createElement('span')
+      span.innerHTML = "foo";
+      span.className = "asdf-foo-bar";
+      document.body.appendChild(span);
+
+      var div = document.createElement('div');
+      div.innerHTML = "bar";
+      div.id = "bar";
+      document.body.appendChild(div);
+
+      var div2 = document.createElement('div');
+      div2.id = 'inner-div';
+      div2.innerHTML = 'This is a fake inner div';
+      document.body.appendChild(div2);
+    }
+
+    var addSecondContent = function(){
+      // Add extra content later
+      var div = document.createElement('div');
+      div.id = 'inner-div';
+      div.innerHTML = 'This is the inner div';
+      var content = document.getElementsByClassName('asdf-foo-bar')[0];
+      content.innerHTML = content.innerHTML + div.outerHTML;
+    }
+    setTimeout(addContent, 2500);
+    setTimeout(addSecondContent, 5000);
+    </script>
+  </head>
+  <body>
+    <span>waiting</span>
+  </body>
+</html>
